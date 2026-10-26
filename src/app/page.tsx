@@ -22,9 +22,9 @@ export default function Home() {
               <span>real-world systems.</span>
             </h1>
             <p className="hero-description">
-              Computer Science student. Software engineer.
+              Computer Science (Honours) student at the University of Manitoba.
               <br />
-              Exploring full-stack development, backend systems, data, and the
+              Building full-stack applications and exploring backend systems, data, and the
               human side of technology.
             </p>
             <a className="text-link hero-link" href="#work">
@@ -56,7 +56,7 @@ export default function Home() {
                 systems, and human experience.
                 <br />
                 <span className="sample-note">
-                  Illustrative projects for now.
+                  Selected projects from my GitHub.
                 </span>
               </p>
             </div>
