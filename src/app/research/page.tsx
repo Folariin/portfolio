@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import { Navigation } from "@/components/navigation";
+import { SiteFooter } from "@/components/site-footer";
+import { ExperienceList } from "@/components/experience-list";
+export const metadata:Metadata={title:"Research | Farouk Amusat"};
+export default function ResearchPage(){return <><Navigation/><main id="main" className="shell inner-page"><p className="eyebrow section-kicker">03 / RESEARCH</p><h1>Designing for <span>the human operator.</span></h1><p className="hero-description">Exploring how interactive systems can respond to changing operator demands.</p><div className="inner-page-content"><ExperienceList research/><section className="research-detail"><p className="eyebrow section-kicker">THE RESEARCH QUESTION</p><h2>Can a teleoperation interface adapt to its operator?</h2><p className="body-copy">My ongoing honours research explores whether joystick control behaviour and galvanic skin response (GSR) can provide evidence of operator overload or underload during robotic manipulation tasks.</p><p className="body-copy">The planned system combines a joystick-controlled robot arm, physiological sensing, and adaptive task structuring. The goal is to compare an adaptive interface with a static interface; findings have not yet been established.</p></section></div></main><SiteFooter/></>}
