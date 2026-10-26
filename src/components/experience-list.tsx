@@ -1,0 +1,3 @@
+import { experiences } from "@/data/experience";
+import { Reveal } from "./reveal";
+export function ExperienceList({research=false}:{research?:boolean}){return <div className="experience-list">{experiences.filter(e=>research?e.role==="Honours Research Project":e.role!=="Honours Research Project").map(e=><Reveal key={e.role}><article className="experience-row"><p className="experience-dates">{e.dates}</p><div><h3>{e.role}</h3><p className="organization">{e.organization}</p><p className="body-copy">{e.description}</p><ul className="technology-list">{e.focus.map(f=><li key={f}>{f}</li>)}</ul></div><span className="experience-arrow" aria-hidden="true">↗</span></article></Reveal>)}</div>}
