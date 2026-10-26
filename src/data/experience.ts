@@ -2,14 +2,14 @@ export const experiences = [
   {
     role: "Undergraduate HCI Research Assistant",
     organization: "University of Manitoba",
-    dates: "Research experience",
+    dates: "May 2026 – Aug 2026",
     description: "Contributing to human-computer interaction research focused on how people interact with technology, including adaptive interfaces and operator experience.",
     focus: ["Human-computer interaction", "Research", "User experience"],
   },
   {
     role: "Map Services Assistant",
     organization: "Canada Map Sales · Government of Manitoba",
-    dates: "Professional experience",
+    dates: "Oct 2023 – Mar 2026",
     description: "Worked in map services at Canada Map Sales, gaining experience supporting practical information and service workflows.",
     focus: ["Map services", "Information services", "Collaboration"],
   },
