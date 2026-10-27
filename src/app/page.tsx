@@ -1,13 +1,34 @@
 import Link from "next/link";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
-import { Network } from "@/components/network";
-import { Reveal } from "@/components/reveal";
 import { Arrow } from "@/components/arrow";
-import { ProjectSection } from "@/components/project-section";
 import { projects } from "@/data/projects";
-export default function Home(){return <><Navigation/><main id="main">
-<section className="hero shell"><div className="hero-copy"><p className="eyebrow hero-eyebrow"><span className="status-dot"/> COMPUTER SCIENCE & SOFTWARE ENGINEERING</p><h1>I build software that connects ideas to <span>real-world systems.</span></h1><p className="hero-description">I'm Farouk Amusat, a final-year Computer Science student at the University of Manitoba.<br/>I build full-stack applications and explore human-computer interaction through research.</p><Link className="text-link hero-link" href="/projects/">Explore my projects <Arrow/></Link></div><Network/><div className="hero-bottom"><span>THOUGHTFUL SOFTWARE. MEANINGFUL CONNECTIONS.</span><Link href="/about/">MORE ABOUT ME <span aria-hidden="true">↗</span></Link></div></section>
-<section className="section shell"><Reveal><div className="section-heading"><div><p className="eyebrow section-kicker">01 / FEATURED PROJECT</p><h2>Built to <span className="muted">solve problems.</span></h2></div><Link className="text-link" href="/projects/">All projects <Arrow/></Link></div></Reveal><Reveal><ProjectSection project={projects[0]} reverse={false}/></Reveal></section>
-<section className="section shell home-next"><Reveal><p className="eyebrow section-kicker">02 / EXPLORE</p><h2>More than <span className="muted">code.</span></h2><div className="page-link-grid"><Link href="/experience/"><span>EXPERIENCE</span><h3>Where I've worked ↗</h3><p>Professional and research experience.</p></Link><Link href="/research/"><span>RESEARCH</span><h3>What I'm exploring ↗</h3><p>Adaptive interfaces and human-robot interaction.</p></Link><Link href="/about/"><span>ABOUT</span><h3>Get to know me ↗</h3><p>Education, background, and technical skills.</p></Link></div></Reveal></section>
-</main><SiteFooter/></>}
+import { experiences } from "@/data/experience";
+import { profile } from "@/data/profile";
+import Image from "next/image";
+export default function Home(){
+ const work=experiences.filter(e=>e.role!=="Honours Research Project");
+ return <><Navigation/><main id="main" className="bright-home">
+ <section className="bright-hero shell">
+   <div className="bright-hero-copy">
+    <p className="bright-eyebrow">COMPUTER SCIENCE · UNIVERSITY OF MANITOBA</p>
+    <h1>Hi, I'm <span>Farouk.</span></h1>
+    <h2>I build software and explore how people interact with technology.</h2>
+    <p>Final-year Computer Science student focused on full-stack development, practical applications, and human-computer interaction research.</p>
+    <div className="bright-actions"><Link className="bright-button" href="/projects/">View my projects <Arrow diagonal/></Link><a className="bright-button bright-button-outline" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <Arrow diagonal/></a></div>
+    <div className="bright-specialties"><span>⌘ Full-stack development</span><span>◈ Real-world applications</span><span>✳ HCI research</span></div>
+   </div>
+   <div className="bright-hero-art" aria-hidden="true"><div className="bright-orb bright-orb-one"/><div className="bright-orb bright-orb-two"/><div className="bright-art-window"><span>F / A</span><strong>BUILD<br/>LEARN<br/>EXPLORE<span className="bright-period">.</span></strong><small>SOFTWARE × HUMAN INTERACTION</small></div><div className="bright-float-note">Ideas into<br/>working things ↗</div></div>
+ </section>
+ <section className="shell bright-section">
+  <div className="bright-section-heading"><div><p className="bright-eyebrow">SELECTED WORK</p><h2>Things I've <span>built.</span></h2></div><Link href="/projects/">All projects <Arrow diagonal/></Link></div>
+  <div className="bright-project-grid">{projects.slice(0,2).map((p,i)=><article className={`bright-project-card bright-project-${i+1}`} key={p.number}><div className="bright-card-top"><span className="bright-project-icon">{i===0?"▦":"◈"}</span><span className="bright-project-index">0{i+1} / PROJECT</span></div><h3>{p.title}</h3><p>{p.description}</p><div className="bright-pills">{p.technologies.map(t=><span key={t}>{t}</span>)}</div><a href={p.githubUrl??"#"} target="_blank" rel="noopener noreferrer" className="bright-card-link">View source code <Arrow diagonal/></a><div className="bright-project-image"><Image src={p.image} alt={p.imageAlt} width={800} height={620}/><span>Concept artwork · project screenshots coming soon</span></div></article>)}</div>
+ </section>
+ <section className="shell bright-statement"><h2>Turning ideas into <span>impact.</span></h2><p>I'm interested in building practical software, exploring how people interact with technology, and applying both technical and research skills to solve meaningful problems.</p><div className="bright-statement-tags"><span>Software engineering</span><span>Research</span><span>Collaboration</span></div></section>
+ <section className="shell bright-two-column">
+  <div className="bright-info-panel"><div className="bright-panel-heading"><h2>Experience</h2><Link href="/experience/">View experience ↗</Link></div><div className="bright-timeline">{work.map(e=><article key={e.role}><small>{e.dates}</small><h3>{e.role}</h3><p>{e.organization}</p><ul>{e.bullets.map(b=><li key={b}>{b}</li>)}</ul></article>)}</div></div>
+  <div className="bright-info-panel"><div className="bright-panel-heading"><h2>Research</h2><Link href="/research/">View research ↗</Link></div><article className="bright-research-item"><span>01</span><div><h3>Trash Talk, Gameplay Approach & Re-engagement</h3><p>Designed a UFC 5 study investigating how competitive communication might influence gameplay and player experience.</p><small>Undergraduate summer research · 2026</small></div></article><article className="bright-research-item"><span>02</span><div><h3>Adaptive-Flow Task Structuring in Teleoperation</h3><p>Exploring joystick behaviour and GSR sensing to inform adaptive robotic teleoperation interfaces.</p><small>Honours project · Ongoing</small></div></article></div>
+ </section>
+ <section className="shell bright-contact"><div><p className="bright-eyebrow">LET'S CONNECT</p><h2>Interested in working together?</h2><p>I'm exploring new-grad software engineering opportunities and always happy to connect.</p></div><a href={profile.github} target="_blank" rel="noopener noreferrer" className="bright-button">Find me on GitHub <Arrow diagonal/></a></section>
+ </main><SiteFooter/></>;
+}
