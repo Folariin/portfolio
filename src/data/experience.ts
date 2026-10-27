@@ -1,23 +1,32 @@
 export const experiences = [
   {
-    role: "Undergraduate HCI Research Assistant",
-    organization: "University of Manitoba",
+    role: "Undergraduate Student Research Assistant – USRA",
+    organization: "University of Manitoba · Winnipeg, MB",
     dates: "May 2026 – Aug 2026",
-    description: "Contributing to human-computer interaction research focused on how people interact with technology, including adaptive interfaces and operator experience.",
-    focus: ["Human-computer interaction", "Research", "User experience"],
+    description: "Conducted human-computer interaction research on competitive gaming and player behaviour.",
+    bullets: [
+      "Designed and conducted a human-computer interaction study involving 8 participants, collecting and analyzing behavioural and questionnaire data.",
+      "Investigated user behaviour, interpreted research findings, and presented conclusions to a faculty supervisor, demonstrating analytical thinking and independent problem-solving.",
+    ],
+    focus: ["Human-computer interaction", "Study design", "Data analysis"],
   },
   {
     role: "Map Services Assistant",
-    organization: "Canada Map Sales · Government of Manitoba",
+    organization: "Canada Map Sales · Government of Manitoba · Winnipeg, MB",
     dates: "Oct 2023 – Mar 2026",
-    description: "Worked in map services at Canada Map Sales, gaining experience supporting practical information and service workflows.",
-    focus: ["Map services", "Information services", "Collaboration"],
+    description: "Maintained map records, digitized maps, and supported customer orders.",
+    bullets: [
+      "Maintained 500+ records and digitized 5,000+ maps, improving information accuracy, accessibility, and organization.",
+      "Handled 20–30 daily customer inquiries and processed 20+ weekly orders, resolving issues while managing priorities and maintaining accurate records.",
+    ],
+    focus: ["Records management", "Digitization", "Customer support"],
   },
   {
     role: "Honours Research Project",
-    organization: "University of Manitoba · Supervisor: Daniel Rea",
-    dates: "2026",
-    description: "Adaptive-Flow Task Structuring in Teleoperation: investigating whether behavioural control signals and physiological measures can help detect operator overload or underload and adapt robotic pick-and-place tasks accordingly. The project explores a joystick-controlled robotic arm and an adaptive versus static interface comparison.",
-    focus: ["Teleoperation", "Adaptive interfaces", "Behavioural and physiological signals"],
+    organization: "University of Manitoba",
+    dates: "Ongoing",
+    description: "Exploring adaptive task structuring in robotic teleoperation using joystick behaviour and physiological sensing.",
+    bullets: [],
+    focus: ["Teleoperation", "Adaptive interfaces", "Human-computer interaction"],
   },
 ];
