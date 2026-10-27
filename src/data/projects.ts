@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     number: "01",
     title: "AI-Assisted Employee Scheduler",
-    category: "AI-ASSISTED WORKFORCE SCHEDULING",
+    category: "AI-ASSISTED SAAS-STYLE WEB APPLICATION",
     description: "A full-stack workforce scheduling app where Groq interprets natural-language staffing requests and a Spring Boot algorithm suggests shifts based on availability, existing assignments, hour limits, and fairness preferences. Managers review suggestions before publishing.",
     technologies: ["React", "Spring Boot", "PostgreSQL", "Groq AI"],
     image: "/projects/signal.svg",
@@ -24,13 +24,13 @@ export const projects: Project[] = [
   {
     number: "02",
     title: "Grocery App",
-    category: "APPLICATION DEVELOPMENT",
-    description: "A grocery-focused application built as a practical software development project, with an emphasis on turning everyday needs into a usable interface.",
-    technologies: ["Application development", "User experience"],
+    category: "FULL-STACK SAAS-STYLE WEB APPLICATION",
+    description: "A deployed full-stack application that lets households collaborate on shared grocery lists. Built with React, Spring Boot, and PostgreSQL, it supports secure JWT authentication, household roles and email invitations, and item tracking with quantities, purchase status, and purchaser history.",
+    technologies: ["React", "Spring Boot", "PostgreSQL", "JWT", "Vercel"],
     image: "/projects/common-ground.svg",
     imageAlt: "Abstract layered shapes representing an application interface",
     githubUrl: "https://github.com/Folariin/grocery-app",
-    liveUrl: null,
+    liveUrl: "https://grocery-app-ivory-rho.vercel.app/",
   },
   {
     number: "03",
