@@ -1,33 +1,139 @@
 import Link from "next/link";
-import { Navigation } from "@/components/navigation";
-import { SiteFooter } from "@/components/site-footer";
 import { Arrow } from "@/components/arrow";
+import { ProjectSection } from "@/components/project-section";
 import { projects } from "@/data/projects";
-import { experiences } from "@/data/experience";
 import { profile } from "@/data/profile";
-import Image from "next/image";
-export default function Home(){
- const work=experiences.filter(e=>e.role!=="Honours Research Project");
- return <><Navigation/><main id="main" className="bright-home">
- <section className="bright-hero shell">
-   <div className="bright-hero-copy">
-    <p className="bright-eyebrow">COMPUTER SCIENCE · UNIVERSITY OF MANITOBA</p>
-    <h1>Hi, I'm <span>Farouk.</span></h1>
-    <h2>I build software and explore how people interact with technology.</h2>
-    <p>Final-year Computer Science student focused on full-stack development, practical applications, and human-computer interaction research.</p>
-    <div className="bright-actions"><Link className="bright-button" href="/projects/">View my projects <Arrow diagonal/></Link><a className="bright-button bright-button-outline" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <Arrow diagonal/></a></div>
-    <div className="bright-specialties"><span>⌘ Full-stack development</span><span>◈ Real-world applications</span><span>✳ HCI research</span></div>
-   </div>
-   <div className="bright-hero-art" aria-hidden="true"><div className="bright-orb bright-orb-one"/><div className="bright-orb bright-orb-two"/><div className="bright-art-window"><span>F / A</span><strong>BUILD<br/>LEARN<br/>EXPLORE<span className="bright-period">.</span></strong><small>SOFTWARE × HUMAN INTERACTION</small></div><div className="bright-float-note">Ideas into<br/>working things ↗</div></div>
- </section>
- <section className="shell bright-section">
-  <div className="bright-section-heading"><div><p className="bright-eyebrow">SELECTED WORK</p><h2>Things I've <span>built.</span></h2></div><Link href="/projects/">All projects <Arrow diagonal/></Link></div>
-  <div className="bright-project-grid">{projects.slice(0,2).map((p,i)=><article className={`bright-project-card bright-project-${i+1}`} key={p.number}><div className="bright-card-top"><span className="bright-project-icon">{i===0?"▦":"◈"}</span><span className="bright-project-index">0{i+1} / PROJECT</span></div><h3>{p.title}</h3><p>{p.description}</p><div className="bright-pills">{p.technologies.map(t=><span key={t}>{t}</span>)}</div><div className="bright-project-links"><a href={p.githubUrl??"#"} target="_blank" rel="noopener noreferrer" className="bright-card-link">Source code <Arrow diagonal/></a>{p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="bright-card-link bright-live-link">Live demo <Arrow diagonal/></a>}</div><div className="bright-project-image"><Image src={p.image} alt={p.imageAlt} width={800} height={620}/><span>Project preview · replace with an app screenshot</span></div></article>)}</div>
- </section>
- <section className="shell bright-two-column bright-two-column-compact">
-  <div className="bright-info-panel"><div className="bright-panel-heading"><h2>Experience</h2><Link href="/experience/">View experience ↗</Link></div><div className="bright-timeline">{work.map(e=><article key={e.role}><small>{e.dates}</small><h3>{e.role}</h3><p>{e.organization}</p></article>)}</div></div>
-  <div className="bright-info-panel"><div className="bright-panel-heading"><h2>Research</h2><Link href="/research/">View research ↗</Link></div><article className="bright-research-item"><span>01</span><div><h3>Gameplay & Social Interaction</h3><p>Undergraduate summer research · 2026</p></div></article><article className="bright-research-item"><span>02</span><div><h3>Adaptive Robotic Teleoperation</h3><p>Honours project · Ongoing</p></div></article></div>
- </section>
- <section className="shell bright-contact"><div><p className="bright-eyebrow">LET'S CONNECT</p><h2>Interested in working together?</h2><p>I'm exploring new-grad software engineering opportunities and always happy to connect.</p></div><a href={profile.github} target="_blank" rel="noopener noreferrer" className="bright-button">Find me on GitHub <Arrow diagonal/></a></section>
- </main><SiteFooter/></>;
+export default function Home() {
+  return (
+    <main id="main" tabIndex={-1}>
+      <section className="hero shell">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="status-dot" /> FINAL-YEAR CS · UNIVERSITY OF
+            MANITOBA
+          </p>
+          <h1>
+            Hi, I’m <span>Farouk.</span>
+            <br />I build for
+            <br />
+            <em>people.</em>
+          </h1>
+          <p className="lead">
+            Full-stack development meets human-computer interaction. Useful
+            software, thoughtful systems, and curiosity about the people using
+            them.
+          </p>
+          <div className="actions">
+            <Link className="button" href="/projects/">
+              Explore my work <Arrow diagonal />
+            </Link>
+            <Link className="text-link" href="/about/">
+              A little about me <Arrow />
+            </Link>
+          </div>
+          <p className="availability">
+            Exploring new-grad software engineering opportunities
+          </p>
+        </div>
+        <div className="hero-art" aria-hidden="true">
+          <div className="art-orbit" />
+          <span className="art-label art-label-top">
+            01 / ENGINEERING + CURIOSITY
+          </span>
+          <div className="art-tile tile-code">
+            <span>BUILD</span>
+            <strong>&lt; / &gt;</strong>
+            <small>Ideas into working systems</small>
+          </div>
+          <div className="art-tile tile-human">
+            <span>UNDERSTAND</span>
+            <strong>✳</strong>
+            <small>The human side of technology</small>
+          </div>
+          <span className="art-label art-label-bottom">
+            SOFTWARE × HUMAN INTERACTION
+          </span>
+        </div>
+      </section>
+      <section className="shell section" aria-labelledby="work-heading">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">01 / SELECTED WORK</p>
+            <h2 id="work-heading">
+              Built with <span>purpose.</span>
+            </h2>
+          </div>
+          <Link className="text-link" href="/projects/">
+            All three projects <Arrow diagonal />
+          </Link>
+        </div>
+        <div className="featured-grid">
+          {projects.slice(0, 2).map((p) => (
+            <ProjectSection key={p.slug} project={p} compact />
+          ))}
+        </div>
+        <Link
+          className="project-footnote"
+          href="/projects/#movie-data-analysis"
+        >
+          <span>ALSO EXPLORING</span> Movie Data Analysis{" "}
+          <span>Java / JDBC / SQL Server</span>
+          <Arrow diagonal />
+        </Link>
+      </section>
+      <section
+        className="shell section perspective"
+        aria-labelledby="perspective-heading"
+      >
+        <div>
+          <p className="eyebrow">02 / A BROADER PERSPECTIVE</p>
+          <h2 id="perspective-heading">
+            Good systems start
+            <br />
+            with <span>good questions.</span>
+          </h2>
+          <p className="body-copy">
+            Research shapes how I think about software. Professional experience
+            has taught me to care about the details people rely on.
+          </p>
+        </div>
+        <div className="perspective-links">
+          <Link href="/research/">
+            <span className="link-number">01</span>
+            <div>
+              <h3>Human-computer interaction</h3>
+              <p>Completed USRA study · ongoing honours research</p>
+            </div>
+            <Arrow diagonal />
+          </Link>
+          <Link href="/experience/">
+            <span className="link-number">02</span>
+            <div>
+              <h3>Experience in practice</h3>
+              <p>Research, information management, and service</p>
+            </div>
+            <Arrow diagonal />
+          </Link>
+        </div>
+      </section>
+      <section className="shell contact-band">
+        <div>
+          <p className="eyebrow">LET’S CONNECT</p>
+          <h2>
+            Something useful
+            <br />
+            starts with a conversation.
+          </h2>
+        </div>
+        <a
+          className="button"
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Find me on GitHub <Arrow diagonal />
+        </a>
+      </section>
+    </main>
+  );
 }

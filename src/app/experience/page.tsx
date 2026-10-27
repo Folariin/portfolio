@@ -1,6 +1,28 @@
-import type { Metadata } from "next";
-import { Navigation } from "@/components/navigation";
-import { SiteFooter } from "@/components/site-footer";
+import { pageMetadata } from "@/lib/metadata";
+import Link from "next/link";
+import { PageIntro } from "@/components/page-intro";
 import { ExperienceList } from "@/components/experience-list";
-export const metadata:Metadata={title:"Experience | Farouk Amusat"};
-export default function ExperiencePage(){return <><Navigation/><main id="main" className="shell inner-page"><p className="eyebrow section-kicker">02 / EXPERIENCE</p><h1>Learning through <span>doing.</span></h1><p className="hero-description">Professional experience and hands-on human-computer interaction research.</p><div className="inner-page-content"><ExperienceList/></div></main><SiteFooter/></>}
+export const metadata = pageMetadata(
+  "Experience",
+  "Farouk Amusat’s University of Manitoba USRA research and Canada Map Sales experience.",
+);
+export default function ExperiencePage() {
+  return (
+    <main id="main" tabIndex={-1} className="shell inner-page">
+      <PageIntro
+        eyebrow="02 / EXPERIENCE"
+        title="Learning through"
+        accent="doing."
+      >
+        Research, information management, and the everyday work of making things
+        clearer for people.
+      </PageIntro>
+      <ExperienceList />
+      <p className="page-note">
+        Currently exploring adaptive robotic teleoperation in my honours
+        project.{" "}
+        <Link href="/research/#honours">Read about the ongoing research →</Link>
+      </p>
+    </main>
+  );
+}
