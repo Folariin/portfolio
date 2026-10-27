@@ -994,3 +994,8 @@ a:hover {color:#6244ff;}
 .bright-section{padding-bottom:22px}
 .bright-contact{margin-bottom:35px}
 @media(max-width:760px){.experience-row{grid-template-columns:1fr;padding:21px}.experience-dates{grid-column:auto}.inner-page{padding-top:36px}.inner-page-content{margin-top:28px}.bright-two-column-compact{padding-top:16px}}
+
+.experience-metric{font-weight:800;color:#111a35}
+.bright-project-links{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.bright-live-link{background:#fff;color:#202943!important;border:1px solid #dce2ef}
+.bright-live-link:hover{background:#e9e5ff;color:#5033d5!important}
