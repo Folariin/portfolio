@@ -11,5 +11,8 @@ export const skills = [
   { category: "Frontend", items: "React · Next.js" },
   { category: "Databases", items: "PostgreSQL" },
   { category: "Tools", items: "Git · GitHub · Docker" },
-  { category: "Research", items: "Human-computer interaction · Teleoperation · User studies" },
+  {
+    category: "Research",
+    items: "Human-computer interaction · Teleoperation · User studies",
+  },
 ];

@@ -1,13 +1,139 @@
 import Link from "next/link";
-import { Navigation } from "@/components/navigation";
-import { SiteFooter } from "@/components/site-footer";
-import { Network } from "@/components/network";
-import { Reveal } from "@/components/reveal";
 import { Arrow } from "@/components/arrow";
 import { ProjectSection } from "@/components/project-section";
 import { projects } from "@/data/projects";
-export default function Home(){return <><Navigation/><main id="main">
-<section className="hero shell"><div className="hero-copy"><p className="eyebrow hero-eyebrow"><span className="status-dot"/> COMPUTER SCIENCE & SOFTWARE ENGINEERING</p><h1>I build software that connects ideas to <span>real-world systems.</span></h1><p className="hero-description">I'm Farouk Amusat, a final-year Computer Science student at the University of Manitoba.<br/>I build full-stack applications and explore human-computer interaction through research.</p><Link className="text-link hero-link" href="/projects/">Explore my projects <Arrow/></Link></div><Network/><div className="hero-bottom"><span>THOUGHTFUL SOFTWARE. MEANINGFUL CONNECTIONS.</span><Link href="/about/">MORE ABOUT ME <span aria-hidden="true">↗</span></Link></div></section>
-<section className="section shell"><Reveal><div className="section-heading"><div><p className="eyebrow section-kicker">01 / FEATURED PROJECT</p><h2>Built to <span className="muted">solve problems.</span></h2></div><Link className="text-link" href="/projects/">All projects <Arrow/></Link></div></Reveal><Reveal><ProjectSection project={projects[0]} reverse={false}/></Reveal></section>
-<section className="section shell home-next"><Reveal><p className="eyebrow section-kicker">02 / EXPLORE</p><h2>More than <span className="muted">code.</span></h2><div className="page-link-grid"><Link href="/experience/"><span>EXPERIENCE</span><h3>Where I've worked ↗</h3><p>Professional and research experience.</p></Link><Link href="/research/"><span>RESEARCH</span><h3>What I'm exploring ↗</h3><p>Adaptive interfaces and human-robot interaction.</p></Link><Link href="/about/"><span>ABOUT</span><h3>Get to know me ↗</h3><p>Education, background, and technical skills.</p></Link></div></Reveal></section>
-</main><SiteFooter/></>}
+import { profile } from "@/data/profile";
+export default function Home() {
+  return (
+    <main id="main" tabIndex={-1}>
+      <section className="hero shell">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="status-dot" /> FINAL-YEAR CS · UNIVERSITY OF
+            MANITOBA
+          </p>
+          <h1>
+            Hi, I’m <span>Farouk.</span>
+            <br />I build for
+            <br />
+            <em>people.</em>
+          </h1>
+          <p className="lead">
+            Full-stack development meets human-computer interaction. Useful
+            software, thoughtful systems, and curiosity about the people using
+            them.
+          </p>
+          <div className="actions">
+            <Link className="button" href="/projects/">
+              Explore my work <Arrow diagonal />
+            </Link>
+            <Link className="text-link" href="/about/">
+              A little about me <Arrow />
+            </Link>
+          </div>
+          <p className="availability">
+            Exploring new-grad software engineering opportunities
+          </p>
+        </div>
+        <div className="hero-art" aria-hidden="true">
+          <div className="art-orbit" />
+          <span className="art-label art-label-top">
+            01 / ENGINEERING + CURIOSITY
+          </span>
+          <div className="art-tile tile-code">
+            <span>BUILD</span>
+            <strong>&lt; / &gt;</strong>
+            <small>Ideas into working systems</small>
+          </div>
+          <div className="art-tile tile-human">
+            <span>UNDERSTAND</span>
+            <strong>✳</strong>
+            <small>The human side of technology</small>
+          </div>
+          <span className="art-label art-label-bottom">
+            SOFTWARE × HUMAN INTERACTION
+          </span>
+        </div>
+      </section>
+      <section className="shell section" aria-labelledby="work-heading">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">01 / SELECTED WORK</p>
+            <h2 id="work-heading">
+              Built with <span>purpose.</span>
+            </h2>
+          </div>
+          <Link className="text-link" href="/projects/">
+            All three projects <Arrow diagonal />
+          </Link>
+        </div>
+        <div className="featured-grid">
+          {projects.slice(0, 2).map((p) => (
+            <ProjectSection key={p.slug} project={p} compact />
+          ))}
+        </div>
+        <Link
+          className="project-footnote"
+          href="/projects/#movie-data-analysis"
+        >
+          <span>ALSO EXPLORING</span> Movie Data Analysis{" "}
+          <span>Java / JDBC / SQL Server</span>
+          <Arrow diagonal />
+        </Link>
+      </section>
+      <section
+        className="shell section perspective"
+        aria-labelledby="perspective-heading"
+      >
+        <div>
+          <p className="eyebrow">02 / A BROADER PERSPECTIVE</p>
+          <h2 id="perspective-heading">
+            Good systems start
+            <br />
+            with <span>good questions.</span>
+          </h2>
+          <p className="body-copy">
+            Research shapes how I think about software. Professional experience
+            has taught me to care about the details people rely on.
+          </p>
+        </div>
+        <div className="perspective-links">
+          <Link href="/research/">
+            <span className="link-number">01</span>
+            <div>
+              <h3>Human-computer interaction</h3>
+              <p>Completed USRA study · ongoing honours research</p>
+            </div>
+            <Arrow diagonal />
+          </Link>
+          <Link href="/experience/">
+            <span className="link-number">02</span>
+            <div>
+              <h3>Experience in practice</h3>
+              <p>Research, information management, and service</p>
+            </div>
+            <Arrow diagonal />
+          </Link>
+        </div>
+      </section>
+      <section className="shell contact-band">
+        <div>
+          <p className="eyebrow">LET’S CONNECT</p>
+          <h2>
+            Something useful
+            <br />
+            starts with a conversation.
+          </h2>
+        </div>
+        <a
+          className="button"
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Find me on GitHub <Arrow diagonal />
+        </a>
+      </section>
+    </main>
+  );
+}

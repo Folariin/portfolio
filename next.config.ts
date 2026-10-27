@@ -4,5 +4,8 @@ const config: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   poweredByHeader: false,
+  agentRules: false,
+  // Bound build-time concurrency in constrained CI environments.
+  experimental: { cpus: 2 },
 };
 export default config;
