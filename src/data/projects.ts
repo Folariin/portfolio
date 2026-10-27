@@ -12,10 +12,10 @@ export type Project = {
 export const projects: Project[] = [
   {
     number: "01",
-    title: "Employee Scheduler",
-    category: "SOFTWARE DEVELOPMENT / SCHEDULING",
-    description: "An employee scheduling application exploring how software can organize shifts and make day-to-day scheduling easier to manage.",
-    technologies: ["Software engineering", "Scheduling"],
+    title: "AI-Assisted Employee Scheduler",
+    category: "AI-ASSISTED WORKFORCE SCHEDULING",
+    description: "A full-stack workforce scheduling app where Groq interprets natural-language staffing requests and a Spring Boot algorithm suggests shifts based on availability, existing assignments, hour limits, and fairness preferences. Managers review suggestions before publishing.",
+    technologies: ["React", "Spring Boot", "PostgreSQL", "Groq AI"],
     image: "/projects/signal.svg",
     imageAlt: "Abstract connected nodes representing scheduling workflows",
     githubUrl: "https://github.com/Folariin/employee-scheduler",
