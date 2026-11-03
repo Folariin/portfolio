@@ -3,7 +3,7 @@ export const profile = {
   email: "faroukamusat@gmail.com",
   github: "https://github.com/Folariin",
   linkedin: "https://www.linkedin.com/in/farouk-amusat-ba3151219/",
-  resume: "/FaroukAmusat__Resume.pdf" as string | null,
+ resume: "/FaroukAmusat__Resume.pdf",
 };
 export const skills = [
   { category: "Languages", items: "Java · Python · TypeScript · SQL" },
@@ -16,3 +16,4 @@ export const skills = [
     items: "Human-computer interaction · Teleoperation · User studies",
   },
 ];
+
