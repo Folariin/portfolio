@@ -1,45 +1,105 @@
 import Link from "next/link";
 import { Arrow } from "@/components/arrow";
-import { ProjectSection } from "@/components/project-section";
-import { projects } from "@/data/projects";
 import { profile } from "@/data/profile";
+
 export default function Home() {
+  const socialLinks = [
+    {
+      label: "GitHub",
+      href: profile.github,
+      icon: (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.75-1.32-3.75-1.32-.5-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .72 2.62.5 3.26.38.1-.73.4-1.23.71-1.52-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.16-2.99-.12-.28-.5-1.42.11-2.95 0 0 .95-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.1-1.43 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.16 1.77 1.16 2.99 0 4.3-2.61 5.24-5.1 5.52.4.34.76 1.02.76 2.06v3.67c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"
+          />
+        </svg>
+      ),
+      external: true,
+    },
+    {
+      label: "LinkedIn",
+      href: profile.linkedin,
+      icon: (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M5.2 3.2a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM3.3 9h3.8v12H3.3V9Zm6.1 0H13v1.64h.05A4.04 4.04 0 0 1 16.7 8.7c3.9 0 4.6 2.57 4.6 5.91V21h-3.8v-5.66c0-1.35-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3V21H9.4V9Z"
+          />
+        </svg>
+      ),
+      external: true,
+    },
+    {
+      label: "Email",
+      href: profile.email ? `mailto:${profile.email}` : "",
+      icon: (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M3.5 6.5h17v11h-17zM4 7l8 6 8-6"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.7"
+          />
+        </svg>
+      ),
+      external: false,
+    },
+  ].filter((link) => link.href);
+
   return (
     <main id="main" tabIndex={-1}>
       <section className="hero shell">
         <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="status-dot" /> FINAL-YEAR CS · UNIVERSITY OF
-            MANITOBA
-          </p>
           <h1>
-            Hi, I’m <span>Farouk.</span>
-            <br />I build for
+            Hi, I&apos;m Farouk.
             <br />
-            <em>people.</em>
+            I enjoy solving
+            <br />
+            problems with
+            <br />
+            <em>technology.</em>
           </h1>
           <p className="lead">
-            Full-stack development meets human-computer interaction. Useful
-            software, thoughtful systems, and curiosity about the people using
-            them.
+            I build useful software, explore new technologies, and enjoy
+            turning ideas into practical solutions.
           </p>
           <div className="actions">
             <Link className="button" href="/projects/">
-              Explore my work <Arrow diagonal />
+              View My Work <Arrow diagonal />
             </Link>
-            <Link className="text-link" href="/about/">
-              A little about me <Arrow />
-            </Link>
+            {profile.resume && (
+              <a
+                className="button button-secondary"
+                href={profile.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume <Arrow diagonal />
+              </a>
+            )}
           </div>
-          <p className="availability">
-            Exploring new-grad software engineering opportunities
-          </p>
+          {socialLinks.length > 0 && (
+            <nav className="social-links" aria-label="Social links">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  className="social-link"
+                  href={link.href}
+                  aria-label={link.label}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </nav>
+          )}
         </div>
         <div className="hero-art" aria-hidden="true">
           <div className="art-orbit" />
-          <span className="art-label art-label-top">
-            01 / ENGINEERING + CURIOSITY
-          </span>
           <div className="art-tile tile-code">
             <span>BUILD</span>
             <strong>&lt; / &gt;</strong>
@@ -50,89 +110,7 @@ export default function Home() {
             <strong>✳</strong>
             <small>The human side of technology</small>
           </div>
-          <span className="art-label art-label-bottom">
-            SOFTWARE × HUMAN INTERACTION
-          </span>
         </div>
-      </section>
-      <section className="shell section" aria-labelledby="work-heading">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">01 / SELECTED WORK</p>
-            <h2 id="work-heading">
-              Built with <span>purpose.</span>
-            </h2>
-          </div>
-          <Link className="text-link" href="/projects/">
-            All three projects <Arrow diagonal />
-          </Link>
-        </div>
-        <div className="featured-grid">
-          {projects.slice(0, 2).map((p) => (
-            <ProjectSection key={p.slug} project={p} compact />
-          ))}
-        </div>
-        <Link
-          className="project-footnote"
-          href="/projects/#movie-data-analysis"
-        >
-          <span>ALSO EXPLORING</span> Movie Data Analysis{" "}
-          <span>Java / JDBC / SQL Server</span>
-          <Arrow diagonal />
-        </Link>
-      </section>
-      <section
-        className="shell section perspective"
-        aria-labelledby="perspective-heading"
-      >
-        <div>
-          <p className="eyebrow">02 / A BROADER PERSPECTIVE</p>
-          <h2 id="perspective-heading">
-            Good systems start
-            <br />
-            with <span>good questions.</span>
-          </h2>
-          <p className="body-copy">
-            Research shapes how I think about software. Professional experience
-            has taught me to care about the details people rely on.
-          </p>
-        </div>
-        <div className="perspective-links">
-          <Link href="/research/">
-            <span className="link-number">01</span>
-            <div>
-              <h3>Human-computer interaction</h3>
-              <p>Completed USRA study · ongoing honours research</p>
-            </div>
-            <Arrow diagonal />
-          </Link>
-          <Link href="/experience/">
-            <span className="link-number">02</span>
-            <div>
-              <h3>Experience in practice</h3>
-              <p>Research, information management, and service</p>
-            </div>
-            <Arrow diagonal />
-          </Link>
-        </div>
-      </section>
-      <section className="shell contact-band">
-        <div>
-          <p className="eyebrow">LET’S CONNECT</p>
-          <h2>
-            Something useful
-            <br />
-            starts with a conversation.
-          </h2>
-        </div>
-        <a
-          className="button"
-          href={profile.github}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Find me on GitHub <Arrow diagonal />
-        </a>
       </section>
     </main>
   );

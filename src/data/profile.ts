@@ -1,8 +1,8 @@
 export const profile = {
   name: "Farouk Amusat",
-  email: "",
+  email: "faroukamusat@gmail.com",
   github: "https://github.com/Folariin",
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/farouk-amusat-ba3151219/",
  resume: "/FaroukAmusat__Resume.pdf",
 };
 export const skills = [
@@ -16,3 +16,4 @@ export const skills = [
     items: "Human-computer interaction · Teleoperation · User studies",
   },
 ];
+

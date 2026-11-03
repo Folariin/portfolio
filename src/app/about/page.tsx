@@ -1,86 +1,116 @@
-import { pageMetadata } from "@/lib/metadata";
-import Link from "next/link";
-import { PageIntro } from "@/components/page-intro";
-import { skills, profile } from "@/data/profile";
 import { Arrow } from "@/components/arrow";
+import { pageMetadata } from "@/lib/metadata";
+import { profile } from "@/data/profile";
+
+const services = [
+  {
+    title: "Full-Stack Development",
+    description:
+      "Building web applications from frontend interfaces to backend APIs using React, Next.js, Spring Boot, and PostgreSQL.",
+  },
+  {
+    title: "Backend Development",
+    description:
+      "Developing REST APIs, working with databases, and implementing authentication and application logic.",
+  },
+  {
+    title: "AI Integration",
+    description:
+      "Integrating LLM APIs into applications to support intelligent features and automate workflows.",
+  },
+  {
+    title: "Testing & Deployment",
+    description:
+      "Writing automated tests, using Docker, and setting up CI/CD pipelines to build and deploy reliable applications.",
+  },
+];
+
+const technologyGroups = [
+  { category: "Languages", items: "Java, TypeScript, JavaScript, Python, SQL" },
+  { category: "Frontend", items: "React, Next.js, Tailwind CSS" },
+  { category: "Backend", items: "Spring Boot, REST APIs" },
+  { category: "Databases", items: "PostgreSQL, Prisma" },
+  { category: "Tools", items: "Git, GitHub, Docker, GitHub Actions" },
+  { category: "Testing", items: "JUnit, Mockito, Vitest" },
+];
+
 export const metadata = pageMetadata(
   "About",
-  "Meet Farouk Amusat, a final-year Computer Science student at the University of Manitoba interested in full-stack engineering and HCI.",
+  "Farouk Amusat is a Computer Science student at the University of Manitoba interested in full-stack and backend development.",
 );
+
 export default function AboutPage() {
   return (
     <main id="main" tabIndex={-1} className="shell inner-page">
-      <PageIntro
-        eyebrow="04 / ABOUT ME"
-        title="Curiosity meets"
-        accent="engineering."
-      >
-        I’m Farouk Amusat, a final-year Computer Science student at the
-        University of Manitoba. I enjoy building useful software and
-        understanding how people interact with technology.
-      </PageIntro>
-      <section className="education">
-        <div>
-          <p className="eyebrow">EDUCATION</p>
-          <h2>University of Manitoba</h2>
-          <p>Computer Science · Final year</p>
+      <header className="about-page-heading">
+        <h1>About Me</h1>
+        <p className="lead">
+          I enjoy building software and solving problems with technology. I&apos;m
+          particularly interested in full-stack development, backend
+          engineering, and exploring new technologies.
+        </p>
+      </header>
+
+      <section className="about-section" aria-labelledby="what-i-do-heading">
+        <h2 id="what-i-do-heading">What I Do</h2>
+        <div className="about-service-grid">
+          {services.map((service) => (
+            <article className="about-service-card" key={service.title}>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))}
         </div>
-        <span className="education-mark" aria-hidden="true">
-          F / A<span>BUILD. QUESTION. LEARN.</span>
-        </span>
       </section>
-      <section className="toolkit" aria-labelledby="toolkit-title">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">TECHNICAL TOOLKIT</p>
-            <h2 id="toolkit-title">
-              Tools for the <span>work.</span>
-            </h2>
-          </div>
-          <p className="body-copy">
-            Across software development
-            <br />
-            and human-centred research.
-          </p>
-        </div>
-        <dl className="skills-grid">
-          {skills.map((s) => (
-            <div key={s.category}>
-              <dt>{s.category}</dt>
-              <dd>{s.items}</dd>
+
+      <section className="about-section" aria-labelledby="technologies-heading">
+        <h2 id="technologies-heading">Technologies I Use</h2>
+        <dl className="about-tech-list">
+          {technologyGroups.map((group) => (
+            <div className="about-tech-group" key={group.category}>
+              <dt>{group.category}</dt>
+              <dd>{group.items}</dd>
             </div>
           ))}
         </dl>
       </section>
-      <section className="about-connect">
-        <p className="eyebrow">NEXT CHAPTER</p>
-        <h2>Let’s build something useful.</h2>
-        <p className="body-copy">
-          I’m exploring new-grad software engineering opportunities.
+
+      <section className="about-section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Get in Touch</h2>
+        <p className="about-contact-copy">
+          I&apos;m always open to connecting and learning about new opportunities.
         </p>
-        <div className="actions">
+        <nav className="about-contact-links" aria-label="Contact links">
+          <a href={`mailto:${profile.email}`} aria-label="Email Farouk Amusat">
+            Email <Arrow diagonal />
+          </a>
           <a
-            className="button"
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub profile (opens in a new tab)"
           >
             GitHub <Arrow diagonal />
           </a>
-          {profile.linkedin && (
-            <a className="text-link" href={profile.linkedin}>
-              LinkedIn <Arrow diagonal />
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile (opens in a new tab)"
+          >
+            LinkedIn <Arrow diagonal />
+          </a>
+          {profile.resume && (
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Resume PDF (opens in a new tab)"
+            >
+              Resume <Arrow diagonal />
             </a>
           )}
-          {profile.email && (
-            <a className="text-link" href={"mailto:" + profile.email}>
-              Email <Arrow />
-            </a>
-          )}
-          <Link className="text-link" href="/projects/">
-            See my work <Arrow />
-          </Link>
-        </div>
+        </nav>
       </section>
     </main>
   );
