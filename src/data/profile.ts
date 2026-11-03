@@ -3,7 +3,7 @@ export const profile = {
   email: "",
   github: "https://github.com/Folariin",
   linkedin: "",
-  resume: null as string | null,
+ resume: "/FaroukAmusat__Resume.pdf",
 };
 export const skills = [
   { category: "Languages", items: "Java · Python · TypeScript · SQL" },
