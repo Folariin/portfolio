@@ -100,9 +100,6 @@ export default function Home() {
         </div>
         <div className="hero-art" aria-hidden="true">
           <div className="art-orbit" />
-          <span className="art-label art-label-top">
-            01 / ENGINEERING + CURIOSITY
-          </span>
           <div className="art-tile tile-code">
             <span>BUILD</span>
             <strong>&lt; / &gt;</strong>
@@ -113,9 +110,6 @@ export default function Home() {
             <strong>✳</strong>
             <small>The human side of technology</small>
           </div>
-          <span className="art-label art-label-bottom">
-            SOFTWARE × HUMAN INTERACTION
-          </span>
         </div>
       </section>
     </main>

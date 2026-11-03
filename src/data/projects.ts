@@ -8,7 +8,8 @@ export type Project = {
   detailTitle: string;
   detail: string;
   technologies: string[];
-  image: string;
+  listingTechnologies?: string[];
+  image: string | null;
   imageAlt: string;
   width: number;
   height: number;
@@ -28,11 +29,18 @@ export const projects: Project[] = [
     summary:
       "Natural-language staffing requests, structured requirements, and a schedule the manager stays in control of.",
     description:
-      "A full-stack workforce scheduling application. Groq turns natural-language requests into editable staffing requirements; a deterministic Spring Boot planner suggests shifts using availability, existing assignments, weekly-hour limits, and an optional fairness preference.",
+      "A full-stack application that helps businesses create employee schedules using AI while accounting for availability, shift conflicts, and working hours.",
     detailTitle: "AI assists. The manager decides.",
     detail:
       "Interpret → review → preview → apply → publish. The LLM does not choose employees or write shifts. Managers review suggestions, apply selected shifts to a draft, and publish separately.",
     technologies: ["React", "TypeScript", "Spring Boot", "PostgreSQL", "Groq"],
+    listingTechnologies: [
+      "React",
+      "TypeScript",
+      "Spring Boot",
+      "PostgreSQL",
+      "Groq API",
+    ],
     image: "/projects/employee-scheduler.webp",
     width: 1280,
     height: 657,
@@ -52,11 +60,12 @@ export const projects: Project[] = [
     summary:
       "A shared space for household grocery lists, member invitations, and keeping track of what has been bought.",
     description:
-      "A deployed, SaaS-style household application with a React frontend, Spring Boot API, and PostgreSQL database. Members collaborate on shared grocery lists with JWT authentication, owner/member roles, email-addressed invitations, quantities, purchase status, and purchaser tracking.",
+      "A shared grocery list app that helps households organize shopping, track purchases, and avoid buying the same items twice.",
     detailTitle: "Shared lists. Clear ownership.",
     detail:
       "Household membership scopes access to lists and items. The frontend runs on Vercel, the backend on Render, and PostgreSQL on Neon. Invitations are tied to an email address and reviewed in the application.",
     technologies: ["React", "Spring Boot", "PostgreSQL", "JWT"],
+    listingTechnologies: ["React", "Spring Boot", "PostgreSQL", "Docker"],
     image: "/projects/grocery-app.webp",
     width: 1042,
     height: 792,
@@ -70,26 +79,24 @@ export const projects: Project[] = [
   },
   {
     number: "03",
-    slug: "movie-data-analysis",
-    title: "Movie Data Analysis",
-    category: "JAVA · RELATIONAL DATA",
+    slug: "pawsignal",
+    title: "PawSignal",
+    category: "AI-POWERED PLATFORM",
     summary:
-      "Exploring movie performance, creative collaborations, and production through analytical SQL.",
+      "An AI-powered platform built during a hackathon that analyzes animal-service data to identify trends and areas that may need attention.",
     description:
-      "A Java console application that imports CSV datasets into Microsoft SQL Server through JDBC. Its 19 analytical reports explore movie performance, people, collaborations, production, and dataset coverage using relational queries.",
-    detailTitle: "From raw records to analytical reports.",
-    detail:
-      "The source includes relational schema creation, JDBC batch imports, and SQL joins and aggregations. The original university database is no longer available; a complete local restoration has not yet been verified. This is a console project, not a web dashboard.",
-    technologies: ["Java", "JDBC", "SQL Server", "SQL"],
-    image: "/projects/movie-schema.svg",
-    width: 1200,
-    height: 720,
-    imageAlt:
-      "Schema illustration connecting Movie, workedIn, and People, with the project’s SQL query for highest-rated movies",
-    caption: "Source-based schema illustration · not a running application",
-    previewLabel: "movie data / analytical exploration",
+      "An AI-powered platform built during a hackathon that analyzes animal-service data to identify trends and areas that may need attention.",
+    detailTitle: "",
+    detail: "",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Groq API"],
+    image: "/pawsignal.jpg",
+    width: 806,
+    height: 386,
+    imageAlt: "PawSignal animal welfare analytics dashboard",
+    caption: "",
+    previewLabel: "PawSignal",
     tone: "peach",
-    githubUrl: "https://github.com/Folariin/movie-data-analysis",
+    githubUrl: "https://github.com/nigerianpickle/animalhack-2026",
     liveUrl: null,
   },
 ];

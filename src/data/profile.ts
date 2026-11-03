@@ -1,9 +1,9 @@
 export const profile = {
   name: "Farouk Amusat",
-  email: "",
+  email: "faroukamusat@gmail.com",
   github: "https://github.com/Folariin",
-  linkedin: "",
-  resume: null as string | null,
+  linkedin: "https://www.linkedin.com/in/farouk-amusat-ba3151219/",
+  resume: "/FaroukAmusat__Resume.pdf" as string | null,
 };
 export const skills = [
   { category: "Languages", items: "Java · Python · TypeScript · SQL" },
