@@ -187,6 +187,16 @@ a:hover .diagonal {
   background: var(--accent-hover);
   transform: translateY(-2px);
 }
+.button-secondary {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--line);
+}
+.button-secondary:hover {
+  color: var(--accent);
+  background: var(--surface);
+  border-color: var(--accent);
+}
 .button-small {
   min-height: 42px;
   padding: 9px var(--space-2);
@@ -279,10 +289,10 @@ a:hover .diagonal {
   grid-template-columns: 1.12fr 1fr;
   gap: var(--space-4);
   align-items: center;
-  padding-block: 80px 88px;
+  padding-block: 48px 56px;
 }
 .hero h1 {
-  font-size: clamp(68px, 7.4vw, 106px);
+  font-size: clamp(50px, 6vw, 78px);
   font-weight: 600;
   line-height: 0.99;
   letter-spacing: -0.065em;
@@ -302,6 +312,28 @@ a:hover .diagonal {
 .hero .actions {
   margin-top: 28px;
 }
+.social-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+.social-link {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  color: var(--muted);
+  border-radius: 50%;
+}
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+.social-link:hover {
+  color: var(--accent);
+  background: var(--lavender);
+  transform: translateY(-2px);
+}
 .availability {
   font-size: 11px;
   color: var(--muted);
@@ -309,7 +341,7 @@ a:hover .diagonal {
 }
 .hero-art {
   position: relative;
-  height: 480px;
+  height: 420px;
   isolation: isolate;
 }
 .art-orbit {
@@ -975,7 +1007,7 @@ a:hover .diagonal {
 }
 @media (max-width: 960px) {
   .hero h1 {
-    font-size: 76px;
+    font-size: clamp(48px, 9vw, 72px);
   }
   .hero .eyebrow {
     font-size: 9px;
@@ -1088,7 +1120,7 @@ a:hover .diagonal {
     gap: var(--space-4);
   }
   .hero h1 {
-    font-size: clamp(64px, 13vw, 91px);
+    font-size: clamp(48px, 9vw, 72px);
   }
   .hero .eyebrow {
     font-size: 9px;
@@ -1346,7 +1378,7 @@ a:hover .diagonal {
     width: calc(100% - 32px);
   }
   .hero h1 {
-    font-size: 60px;
+    font-size: clamp(42px, 12vw, 52px);
   }
   .actions {
     gap: 12px;
@@ -1391,3 +1423,4 @@ a:hover .diagonal {
     transform: none;
   }
 }
+
